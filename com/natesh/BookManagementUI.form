@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.natesh.BookManagementUI">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="true" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="944" height="741"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="8332b" binding="LeftTabPanel" layout-manager="FormLayout">
+        <rowspec value="center:d:grow"/>
+        <rowspec value="top:4dlu:noGrow"/>
+        <rowspec value="center:d:grow"/>
+        <rowspec value="top:4dlu:noGrow"/>
+        <rowspec value="center:d:grow"/>
+        <colspec value="fill:d:grow"/>
+        <constraints>
+          <grid row="0" column="0" row-span="3" col-span="1" vsize-policy="7" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="609d5" class="javax.swing.JButton" binding="issuedBooksPanelButton">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <forms defaultalign-horz="false" defaultalign-vert="false"/>
+            </constraints>
+            <properties>
+              <text value="Issued Books"/>
+            </properties>
+          </component>
+          <component id="a550d" class="javax.swing.JButton" binding="booksPanelButton">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <forms defaultalign-vert="false"/>
+            </constraints>
+            <properties>
+              <text value="Books"/>
+            </properties>
+          </component>
+          <component id="617ea" class="javax.swing.JButton" binding="studentsPanelButton">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <forms defaultalign-vert="false"/>
+            </constraints>
+            <properties>
+              <text value="Students"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="d2d68" binding="RightMainPanel" layout-manager="CardLayout" hgap="0" vgap="0">
+        <constraints>
+          <grid row="0" column="1" row-span="3" col-span="1" vsize-policy="3" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <scrollpane id="85e60" binding="issuesCard">
+            <constraints>
+              <card name="issuesCard"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="76925" layout-manager="FormLayout">
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:d:grow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:d:grow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <colspec value="fill:d:grow"/>
+                <constraints/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="14b5c" class="javax.swing.JButton" binding="issueDeleteButton">
+                    <constraints>
+                      <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <forms defaultalign-vert="false"/>
+                    </constraints>
+                    <properties>
+                      <opaque value="true"/>
+                      <preferredSize width="90" height="50"/>
+                      <text value="Delete"/>
+                    </properties>
+                  </component>
+                  <grid id="b82ac" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <forms defaultalign-horz="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="7c4c2" class="javax.swing.JLabel">
+                        <constraints/>
+                        <properties>
+                          <text value="USN"/>
+                        </properties>
+                      </component>
+                      <component id="8682d" class="javax.swing.JTextField" binding="issueUsnTextField">
+                        <constraints/>
+                        <properties>
+                          <columns value="10"/>
+                          <text value=""/>
+                        </properties>
+                      </component>
+                      <component id="84290" class="javax.swing.JLabel">
+                        <constraints/>
+                        <properties>
+                          <text value="Book ISBN"/>
+                        </properties>
+                      </component>
+                      <component id="26e6f" class="javax.swing.JTextField" binding="issueISBNTextField">
+                        <constraints/>
+                        <properties>
+                          <columns value="10"/>
+                        </properties>
+                      </component>
+                      <component id="e11f3" class="javax.swing.JButton" binding="issueSubmitButton">
+                        <constraints/>
+                        <properties>
+                          <text value="Submit"/>
+                        </properties>
+                      </component>
+                      <component id="20f88" class="javax.swing.JButton" binding="issuedBooksSeachButton">
+                        <constraints/>
+                        <properties>
+                          <text value="Seach"/>
+                        </properties>
+                      </component>
+                      <component id="f2686" class="javax.swing.JButton" binding="issueShowTodaysDueBookButton">
+                        <constraints/>
+                        <properties>
+                          <text value="Show Today's Due Books"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <scrollpane id="24814">
+                    <constraints>
+                      <grid row="2" column="0" row-span="3" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="83085" class="javax.swing.JTable" binding="issueTable">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </scrollpane>
+                </children>
+              </grid>
+            </children>
+          </scrollpane>
+          <scrollpane id="9fd7c" binding="booksCard">
+            <constraints>
+              <card name="booksCard"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="c801e" layout-manager="FormLayout">
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:d:grow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:d:grow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <colspec value="fill:d:grow"/>
+                <constraints/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="a3c1a" class="javax.swing.JButton" binding="bookDeleteButton">
+                    <constraints>
+                      <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <forms/>
+                    </constraints>
+                    <properties>
+                      <preferredSize width="90" height="50"/>
+                      <text value="Delete"/>
+                    </properties>
+                  </component>
+                  <grid id="4a25b" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <forms defaultalign-horz="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="91282" class="javax.swing.JLabel">
+                        <constraints/>
+                        <properties>
+                          <text value="Title"/>
+                        </properties>
+                      </component>
+                      <component id="f87c4" class="javax.swing.JTextField" binding="bookTitleField">
+                        <constraints/>
+                        <properties>
+                          <columns value="10"/>
+                        </properties>
+                      </component>
+                      <component id="c8e44" class="javax.swing.JLabel">
+                        <constraints/>
+                        <properties>
+                          <text value="Book ISBN"/>
+                        </properties>
+                      </component>
+                      <component id="954c1" class="javax.swing.JTextField" binding="bookIsbnField">
+                        <constraints/>
+                        <properties>
+                          <columns value="7"/>
+                        </properties>
+                      </component>
+                      <component id="f8770" class="javax.swing.JLabel">
+                        <constraints/>
+                        <properties>
+                          <text value="Category"/>
+                        </properties>
+                      </component>
+                      <component id="1b217" class="javax.swing.JTextField" binding="bookCategoryField">
+                        <constraints/>
+                        <properties>
+                          <columns value="8"/>
+                        </properties>
+                      </component>
+                      <component id="1738b" class="javax.swing.JLabel">
+                        <constraints/>
+                        <properties>
+                          <text value="Author Name"/>
+                        </properties>
+                      </component>
+                      <component id="e45e7" class="javax.swing.JTextField" binding="bookAuthornameField">
+                        <constraints/>
+                        <properties>
+                          <columns value="7"/>
+                        </properties>
+                      </component>
+                      <component id="e8cd3" class="javax.swing.JLabel" binding="bookAuthorEmaiLabel">
+                        <constraints/>
+                        <properties>
+                          <text value="Email"/>
+                        </properties>
+                      </component>
+                      <component id="80a6c" class="javax.swing.JTextField" binding="bookAuthoremailField">
+                        <constraints/>
+                        <properties>
+                          <columns value="7"/>
+                        </properties>
+                      </component>
+                      <component id="ee464" class="javax.swing.JButton" binding="bookSubmitButton">
+                        <constraints/>
+                        <properties>
+                          <text value="Submit"/>
+                        </properties>
+                      </component>
+                      <component id="2e3df" class="javax.swing.JButton" binding="bookSearchButton">
+                        <constraints/>
+                        <properties>
+                          <text value="Search"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <scrollpane id="fd28">
+                    <constraints>
+                      <grid row="2" column="0" row-span="3" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="c2cc6" class="javax.swing.JTable" binding="booksCardTable">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </scrollpane>
+                </children>
+              </grid>
+            </children>
+          </scrollpane>
+          <scrollpane id="950df" binding="studentsCard">
+            <constraints>
+              <card name="studentsCard"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="80a19" layout-manager="FormLayout">
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:d:grow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:d:grow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <colspec value="fill:d:grow"/>
+                <constraints/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="aa4a1" class="javax.swing.JButton" binding="studentDeleteButton">
+                    <constraints>
+                      <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <forms/>
+                    </constraints>
+                    <properties>
+                      <preferredSize width="90" height="50"/>
+                      <text value="Delete"/>
+                    </properties>
+                  </component>
+                  <grid id="6c4af" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <forms defaultalign-horz="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="e2e45" class="javax.swing.JLabel">
+                        <constraints/>
+                        <properties>
+                          <text value="USN"/>
+                        </properties>
+                      </component>
+                      <component id="d64b7" class="javax.swing.JTextField" binding="studentUSNField">
+                        <constraints/>
+                        <properties>
+                          <columns value="15"/>
+                        </properties>
+                      </component>
+                      <component id="2b22f" class="javax.swing.JLabel">
+                        <constraints/>
+                        <properties>
+                          <text value="Name"/>
+                        </properties>
+                      </component>
+                      <component id="3664f" class="javax.swing.JTextField" binding="studentNameField">
+                        <constraints/>
+                        <properties>
+                          <columns value="15"/>
+                        </properties>
+                      </component>
+                      <component id="88d25" class="javax.swing.JButton" binding="studentSubmitButton">
+                        <constraints/>
+                        <properties>
+                          <text value="Submit"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <scrollpane id="80b5e">
+                    <constraints>
+                      <grid row="2" column="0" row-span="3" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="c27cd" class="javax.swing.JTable" binding="studentTable">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </scrollpane>
+                </children>
+              </grid>
+            </children>
+          </scrollpane>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
