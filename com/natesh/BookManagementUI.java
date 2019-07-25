@@ -1,6 +1,7 @@
 package com.natesh;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,6 +38,8 @@ public class BookManagementUI {
     private JButton bookSearchButton;
     private JButton issuedBooksSeachButton;
     private JButton issueShowTodaysDueBookButton;
+    private JButton issueResetButton;
+    private JButton booksResetButton;
 
     public BookManagementUI() {
 
@@ -167,15 +170,44 @@ public class BookManagementUI {
 
             }
         });
-        issuedBooksSeachButton.addActionListener(new ActionListener() {
+        issuedBooksSeachButton.addActionListener(actionEvent -> {
+           if(!issueUsnTextField.getText().trim().isEmpty()) {
+                issueTable.setModel(IssueBookDAO.listIssuedUsn(issueUsnTextField.getText().trim()));
+           }
+           else if(!issueISBNTextField.getText().trim().isEmpty()) {
+               issueTable.setModel(IssueBookDAO.listIssuedISBN(issueISBNTextField.getText().trim()));
+           }
+        });
+        issueResetButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-               if(!issueUsnTextField.getText().trim().isEmpty()) {
-                    issueTable.setModel(IssueBookDAO.listIssuedUsn(issueUsnTextField.getText().trim()));
-               }
-               else if(!issueISBNTextField.getText().trim().isEmpty()) {
-                   issueTable.setModel(IssueBookDAO.listIssuedISBN(issueISBNTextField.getText().trim()));
-               }
+                issueTable.setModel(IssueBookDAO.getTableModel());
+            }
+        });
+        booksResetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                booksCardTable.setModel(BookDAO.listAll());
+            }
+        });
+        bookSearchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                String title = bookTitleField.getText().trim() ;
+                String isbn = bookIsbnField.getText().trim() ;
+                String cat = bookCategoryField.getText().trim() ;
+                String authorname = bookAuthornameField.getText().trim() ;
+                String authoremail= bookAuthoremailField.getText().trim() ;
+
+                DefaultTableModel target  ;
+                if(!title.isEmpty()){
+                    target = BookDAO.SearchByTitle(title) ;
+                }
+                else if(!isbn.isEmpty()){
+                    target = BookDAO.SearchByISBN(isbn) ;
+                }
+                else if(!cat.isEmpty()) target = BookDAO.SearchByCategory(cat) ;
+                else if(!authorname.isEmpty()) target = BookDAO.SearchByAuthor(authorname) ;
             }
         });
     }

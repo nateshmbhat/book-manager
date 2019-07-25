@@ -139,6 +139,13 @@
                           <text value="Show Today's Due Books"/>
                         </properties>
                       </component>
+                      <component id="12617" class="javax.swing.JButton" binding="issueResetButton">
+                        <constraints/>
+                        <properties>
+                          <text value="Refresh"/>
+                          <toolTipText value="Reset table"/>
+                        </properties>
+                      </component>
                     </children>
                   </grid>
                   <scrollpane id="24814">
@@ -267,6 +274,14 @@
                         <constraints/>
                         <properties>
                           <text value="Search"/>
+                        </properties>
+                      </component>
+                      <component id="1c40b" class="javax.swing.JButton" binding="booksResetButton">
+                        <constraints/>
+                        <properties>
+                          <preferredSize width="70" height="30"/>
+                          <text value="↷"/>
+                          <toolTipText value="Refresh Table"/>
                         </properties>
                       </component>
                     </children>
