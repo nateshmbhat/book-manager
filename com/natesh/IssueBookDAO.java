@@ -13,26 +13,9 @@ import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
 public class IssueBookDAO {
-
-    public static boolean delete(int id) {
-        Connection con = DBConnectionManager.getConnection();
-        String sql = "delete from BookIssue where id=?";
-        int rows = 0;
-        if (con != null) {
-            try {
-                PreparedStatement ps = con.prepareStatement(sql);
-                ps.setInt(1, id);
-                rows = ps.executeUpdate();
-            } catch (SQLException e) {
-                e.printStackTrace() ; throw new BookManagementException(e.getMessage()) ; 
-            }
-        }
-        return rows > 0;
-    }
-
      public static boolean delete(String isbn , String usn) {
         Connection con = DBConnectionManager.getConnection();
-        String sql = "delete from BookIssue where isbn=? and usn=";
+        String sql = "delete from BookIssue where isbn=? and usn=?";
         int rows = 0;
         if (con != null) {
             try {
@@ -55,7 +38,6 @@ public class IssueBookDAO {
         Vector<Vector<String>> data = new Vector<Vector<String>>();
         Vector<String> colNames = new Vector<String>();
 
-        colNames.add("ID");
         colNames.add("USN");
         colNames.add("Issue Date");
         colNames.add("Return Date");
@@ -68,7 +50,6 @@ public class IssueBookDAO {
 
                 while (rs != null && rs.next()) {
                     Vector<String> v = new Vector<String>();
-                    v.add(rs.getString("id"));
                     v.add(rs.getString("usn"));
                     v.add(rs.getString("issueDate"));
                     v.add(rs.getString("returnDate"));
@@ -167,6 +148,7 @@ public class IssueBookDAO {
         Vector<String> colNames = new Vector<String>();
         colNames.add("Book Title");
         colNames.add("ISBN");
+        colNames.add("Category") ;
         colNames.add("Return Date");
 
         if (con != null) {
@@ -180,9 +162,10 @@ public class IssueBookDAO {
                     Vector<String> v = new Vector<String>();
                     v.add(rs.getString("title"));
                     v.add(rs.getString("isbn"));
-                    v.add(rs.getString("returnDate"));
+                    v.add(rs.getString("category"));
+                    v.add((dformat.format(date)));
                     data.add(v);
-                    System.out.println("Book title = " + rs.getString("title") + " , Isbn = " + rs.getString("isbn") + " , Category = " + rs.getDate("returnDate"));
+                    System.out.println("Book title = " + rs.getString("title") + " , Isbn = " + rs.getString("isbn") + " , Category = " );
                 }
 
             } catch (SQLException e) {

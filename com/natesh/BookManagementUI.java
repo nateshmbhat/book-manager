@@ -50,6 +50,8 @@ public class BookManagementUI {
         studentSubmitButton.addActionListener(actionEvent -> {
             try {
                 StudentDAO.create(new Student(studentNameField.getText(), studentUSNField.getText()));
+                studentNameField.setText("");
+                studentUSNField.setText("");
                 studentTable.setModel(StudentDAO.getTableModel());
 
             } catch (BookManagementException e) {
@@ -71,6 +73,8 @@ public class BookManagementUI {
         issueSubmitButton.addActionListener(actionEvent -> {
             try {
                 IssueBookDAO.issue(issueUsnTextField.getText(), issueISBNTextField.getText());
+                issueUsnTextField.setText("");
+                issueISBNTextField.setText("");
                 issueTable.setModel(IssueBookDAO.getTableModel());
 
             } catch (BookManagementException e) {
@@ -80,12 +84,11 @@ public class BookManagementUI {
 
         issueDeleteButton.addActionListener(actionEvent -> {
             if (issueTable.getSelectedRow() < 0) return;
-            int id = Integer.parseInt((String) issueTable.getValueAt(issueTable.getSelectedRow(), 0));
+            String usn = ((String) issueTable.getValueAt(issueTable.getSelectedRow(), 0));
+            String  isbn = ((String) issueTable.getValueAt(issueTable.getSelectedRow(), 3));
             try {
-
-                IssueBookDAO.delete(id);
+                IssueBookDAO.delete(isbn , usn);
                 issueTable.setModel(IssueBookDAO.getTableModel());
-
             } catch (BookManagementException e) {
                 Utility.showErrorMessage(e.getMessage(), mainPanel);
             }
@@ -199,7 +202,7 @@ public class BookManagementUI {
                 String authorname = bookAuthornameField.getText().trim() ;
                 String authoremail= bookAuthoremailField.getText().trim() ;
 
-                DefaultTableModel target  ;
+                DefaultTableModel target = null;
                 if(!title.isEmpty()){
                     target = BookDAO.SearchByTitle(title) ;
                 }
@@ -207,7 +210,9 @@ public class BookManagementUI {
                     target = BookDAO.SearchByISBN(isbn) ;
                 }
                 else if(!cat.isEmpty()) target = BookDAO.SearchByCategory(cat) ;
-                else if(!authorname.isEmpty()) target = BookDAO.SearchByAuthor(authorname) ;
+                else if(!authorname.isEmpty()) target = BookDAO.SearchByAuthorEmail(authorname) ;
+
+                booksCardTable.setModel(target);
             }
         });
     }

@@ -45,7 +45,7 @@ public class BookManagementTest {
 			case 4 : 
 				System.out.println("Enter author name : "); 
 				name = scan.next() ; 
-				BookDAO.SearchByAuthor(name);
+				BookDAO.SearchByAuthorName(name);
 				break ; 
 			
 			case 5 : 
